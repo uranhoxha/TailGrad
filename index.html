@@ -31,13 +31,14 @@
           <fieldset class="win98-fieldset">
             <legend>Color Stops</legend>
             <div id="color-stops-container"></div>
-            <button
-              id="add-stop-btn"
-              class="win98-btn"
-              style="width: 100%; margin-top: 10px"
-            >
-              Add Stop
-            </button>
+            <div style="display: flex; gap: 5px; margin-top: 10px">
+              <button id="add-stop-btn" class="win98-btn" style="flex: 2">
+                Add Stop
+              </button>
+              <button id="clear-btn" class="win98-btn" style="flex: 1">
+                Clear
+              </button>
+            </div>
           </fieldset>
 
           <fieldset class="win98-fieldset">
@@ -104,6 +105,10 @@
                   </div>
                 </div>
 
+                <div id="text-preview">
+                  <div id="text-preview-content">Tailgrad</div>
+                </div>
+
                 <div class="gradient-bar-section">
                   <div id="gradient-bar-tooltips"></div>
                   <div
@@ -123,16 +128,22 @@
                 <div class="code-output-container">
                   <code id="code-tw-output"></code>
                 </div>
-                <button
-                  id="copy-tw-code"
-                  class="win98-btn"
-                  style="align-self: flex-start; margin-top: 5px"
-                >
-                  Copy
-                </button>
+                <div style="display: flex; gap: 5px; margin-top: 5px">
+                  <button id="copy-tw-code" class="win98-btn">Copy</button>
+                </div>
                 <p id="arbitrary-warning" class="warning-text hidden">
                   Note: >3 stops uses arbitrary values in Tailwind v3+
                 </p>
+              </div>
+
+              <div class="code-block" style="margin-top: 15px">
+                <div class="code-header">Text Gradient (Tailwind):</div>
+                <div class="code-output-container">
+                  <code id="code-text-tw-output"></code>
+                </div>
+                <div style="display: flex; gap: 5px; margin-top: 5px">
+                  <button id="copy-text-tw-code" class="win98-btn">Copy</button>
+                </div>
               </div>
 
               <div class="code-block" style="margin-top: 15px">
@@ -140,20 +151,16 @@
                 <div class="code-output-container">
                   <code id="code-css-output"></code>
                 </div>
-                <button
-                  id="copy-css-code"
-                  class="win98-btn"
-                  style="align-self: flex-start; margin-top: 5px"
-                >
-                  Copy
-                </button>
+                <div style="display: flex; gap: 5px; margin-top: 5px">
+                  <button id="copy-css-code" class="win98-btn">Copy</button>
+                </div>
               </div>
             </div>
           </div>
         </main>
       </div>
     </div>
-    <p class="credits">Project by: <a href="https://www.urani.site/" target="_blank">urani.</a></p>
+    <p class="credits">Crafted by: <a href="https://www.urani.site/" target="_blank">urani.</a></p>
 
     <script src="script.js"></script>
   </body>
