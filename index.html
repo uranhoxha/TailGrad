@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gradient Generator</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.cdnfonts.com/css/w95fa" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+  </head>
+  <body>
+    <div class="win98-window">
+      <header class="win98-title-bar">
+        <div class="win98-title-text">Gradient Generator</div>
+        <div class="win98-title-controls">
+          <div class="win98-title-btn">_</div>
+          <div class="win98-title-btn">□</div>
+          <div class="win98-title-btn">×</div>
+        </div>
+      </header>
+
+      <nav class="win98-menu-bar">
+        <div class="win98-menu-item"><span>F</span>ile</div>
+        <div class="win98-menu-item"><span>E</span>dit</div>
+        <div class="win98-menu-item"><span>V</span>iew</div>
+        <div class="win98-menu-item"><span>H</span>elp</div>
+      </nav>
+
+      <div class="app-container">
+        <aside class="sidebar">
+          <fieldset class="win98-fieldset">
+            <legend>Color Stops</legend>
+            <div id="color-stops-container"></div>
+            <button
+              id="add-stop-btn"
+              class="win98-btn"
+              style="width: 100%; margin-top: 10px"
+            >
+              Add Stop
+            </button>
+          </fieldset>
+
+          <fieldset class="win98-fieldset">
+            <legend>Direction</legend>
+            <div class="direction-grid">
+              <button class="win98-btn dir-btn" data-dir="tl">↖</button>
+              <button class="win98-btn dir-btn" data-dir="t">↑</button>
+              <button class="win98-btn dir-btn" data-dir="tr">↗</button>
+              <button class="win98-btn dir-btn" data-dir="l">←</button>
+              <button class="win98-btn dir-btn" data-dir="c">●</button>
+              <button class="win98-btn dir-btn active" data-dir="r">→</button>
+              <button class="win98-btn dir-btn" data-dir="bl">↙</button>
+              <button class="win98-btn dir-btn" data-dir="b">↓</button>
+              <button class="win98-btn dir-btn" data-dir="br">↘</button>
+            </div>
+            <div style="display: flex; gap: 5px; margin-top: 10px">
+              <button id="flip-x-btn" class="win98-btn" style="flex: 1">
+                Flip X
+              </button>
+              <button id="flip-y-btn" class="win98-btn" style="flex: 1">
+                Flip Y
+              </button>
+            </div>
+          </fieldset>
+
+          <fieldset class="win98-fieldset">
+            <legend>Type</legend>
+            <div class="type-toggle">
+              <button
+                id="type-linear-btn"
+                class="win98-btn active"
+                style="flex: 1"
+              >
+                Linear
+              </button>
+              <button id="type-radial-btn" class="win98-btn" style="flex: 1">
+                Radial
+              </button>
+            </div>
+          </fieldset>
+
+          <footer class="sidebar-footer">
+            <button id="copy-class-btn" class="win98-btn">
+              Copy Tailwind Class
+            </button>
+            <button id="copy-css-btn" class="win98-btn">Copy Full CSS</button>
+          </footer>
+        </aside>
+
+        <main class="main-content">
+          <div class="win98-tabs">
+            <button class="win98-tab active" data-target="preview-tab">
+              Preview
+            </button>
+            <button class="win98-tab" data-target="code-tab">Code</button>
+          </div>
+
+          <div class="tab-content">
+            <div id="preview-tab" class="tab-pane active">
+              <div class="preview-container">
+                <div id="gradient-preview">
+                  <div class="overlay-badge">
+                    <span id="preview-badge-text">bg-gradient-to-r ...</span>
+                  </div>
+                </div>
+
+                <div class="gradient-bar-section">
+                  <div id="gradient-bar-tooltips"></div>
+                  <div
+                    class="gradient-bar-container"
+                    id="gradient-bar-interactive"
+                  >
+                    <div id="gradient-bar-main"></div>
+                    <div id="gradient-bar-handles"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="code-tab" class="tab-pane">
+              <div class="code-block">
+                <div class="code-header">Tailwind Class:</div>
+                <div class="code-output-container">
+                  <code id="code-tw-output"></code>
+                </div>
+                <button
+                  id="copy-tw-code"
+                  class="win98-btn"
+                  style="align-self: flex-start; margin-top: 5px"
+                >
+                  Copy
+                </button>
+                <p id="arbitrary-warning" class="warning-text hidden">
+                  Note: >3 stops uses arbitrary values in Tailwind v3+
+                </p>
+              </div>
+
+              <div class="code-block" style="margin-top: 15px">
+                <div class="code-header">Raw CSS:</div>
+                <div class="code-output-container">
+                  <code id="code-css-output"></code>
+                </div>
+                <button
+                  id="copy-css-code"
+                  class="win98-btn"
+                  style="align-self: flex-start; margin-top: 5px"
+                >
+                  Copy
+                </button>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <p class="credits">Project by: <a href="https://www.urani.site/" target="_blank">urani.</a></p>
+
+    <script src="script.js"></script>
+  </body>
+</html>
